@@ -16,6 +16,10 @@ HOME_DIR=/home/$ADMIN_USER
 
 # http://serverfault.com/questions/58378/add-new-user-with-root-access-in-linux
 
+
+# run as root with:
+# curl -L https://raw.github.com/hernad/ubuntu_bootstrap_chef/master/bootstrap.sh  | bash
+
 function create_admin_user {
   useradd $ADMIN_USER -m -s /bin/bash
   usermod -a -G adm
@@ -33,7 +37,7 @@ function install_chef {
   gem install chef ruby-shadow --no-ri --no-rdoc
 }
 
-function instal_pub_key {
+function install_pub_key {
 
 # Make the chef directory and chown it for my admin user.
 
@@ -47,14 +51,26 @@ cat $pub_key >> $HOME_DIR/.ssh/autorized_keys
 
 }
 
+function line {
+echo "----------------------------------------"
+}
+
 echo "create admin user ..."
+line
 create_admin_user
+line
 
 echo "upgrading system ..."
+line
 upgrade_system
+line
 
 echo "install chef"
+line
 install_chef
+line
 
 echo "install sezame_otvori_se.pub -> admin@~/.ssh/authorized_keys"
+line
 install_pub_key
+line
