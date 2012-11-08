@@ -28,25 +28,14 @@ install_chef() {
 instal_pub_key() {
 
 # Make the chef directory and chown it for my admin user.
+
 mkdir /var/chef && chown admin:admin /var/chef
-   
+mkdir -p /home/admin/.ssh && chown admin:admin
+chown 0600 /home/admin/.ssh
+
+cat (CURL -L https://raw.github.com/hernad/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub) >> /home/admin/autorized_keys
 
 }
-
-Clone my git project whilst retaining ownership of the files by my admin user, for those new to git see the awesome git book.
-
-git clone git@github.com:$GITHUB_USER/$GITHUB_REPOS.git /var/chef
-
-mkdir -p /home/admin/.ssh/
-
-
-
-Initialise the sub-modules and update them, this is something I always forget unless I have a script to follow..
-
-cd /var/chef && git submodule init && git submodule update"
-Now you can run chef-solo just to ensure it is all running as expected.
-
-ssh admin@ubuntuserver -t -C 'sudo chef-solo -c /var/chef/solo.rb -j /var/chef/node.json'
 
 echo "upgrading system ..."
 upgrade_system
@@ -54,6 +43,5 @@ upgrade_system
 echo "install chef"
 install_chef
 
-
-
-
+echo "install sezame_otvori_se.pub -> admin@~/.ssh/authorized_keys"
+install_pub_key
