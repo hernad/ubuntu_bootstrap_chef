@@ -16,24 +16,24 @@ HOME_DIR=/home/$ADMIN_USER
 
 # http://serverfault.com/questions/58378/add-new-user-with-root-access-in-linux
 
-create_admin_user() {
+function create_admin_user {
   useradd $ADMIN_USER -m -s /bin/bash
   usermod -a -G adm
 }
 
-upgrade_system() {
+function upgrade_system {
   apt-get -y update
   apt-get -y upgrade
 }
 
-install_chef() {
+function install_chef {
   apt-get -y install git build-essential autoconf zlib1g-dev libssl-dev \
       libreadline-dev libyaml-dev libcurl4-openssl-dev curl python-software-properties \
       ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 curl
   gem install chef ruby-shadow --no-ri --no-rdoc
 }
 
-instal_pub_key() {
+function instal_pub_key {
 
 # Make the chef directory and chown it for my admin user.
 
