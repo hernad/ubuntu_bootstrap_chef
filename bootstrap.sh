@@ -38,8 +38,13 @@ function header {
 }
 
 function create_admin_user {
-  useradd $ADMIN_USER -m -s /bin/bash
-  usermod -a -G adm
+
+  adm=`groups $ADMIN_USER | grep -c ":.*$ADMIN_USER"`
+
+  if [[ $adm -eq 0 ]]; then
+     useradd $ADMIN_USER -g $ADMIN_USER  -m -s /bin/bash
+  fi
+  usermod -a -G adm admin
 }
 
 function upgrade_system {
@@ -68,7 +73,7 @@ echo "$pub_key" >> $HOME_DIR/.ssh/autorized_keys
 
 }
 
-
+# --------- start app ---------------------
 header
 
 echo "create admin user ..."
@@ -90,3 +95,5 @@ echo "install sezame_otvori_se.pub -> admin@~/.ssh/authorized_keys"
 line
 install_pub_key
 line
+
+echo "boostrap chef is finished :)"
