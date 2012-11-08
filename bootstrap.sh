@@ -8,7 +8,7 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.5.0"
+VERSION="0.6.0"
 DATE="08.11.2012"
 LICENSE="MIT"
 
@@ -63,12 +63,15 @@ function install_pub_key {
 # Make the chef directory and chown it for my admin user.
 
 mkdir /var/chef && chown admin:admin /var/chef
-mkdir -p $HOME_DIR/.ssh && chown admin:admin $HOME_DIR/.ssh
-chown 0640 $HOME_DIR/.ssh
+mkdir -p $HOME_DIR/.ssh
 
 pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
 
-echo "$pub_key" >> $HOME_DIR/.ssh/autorized_keys
+echo "$pub_key" >> $HOME_DIR/.ssh/authorized_keys
+
+chown $ADMIN_USER:$ADMIN_USER -R $HOME_DIR/.ssh
+chmod 0640 $HOME_DIR/.ssh
+chmod  0600 $HOME_DIR/.ssh/authorized_keys
 
 }
 
