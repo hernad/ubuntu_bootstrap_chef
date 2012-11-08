@@ -45,7 +45,7 @@ mkdir /var/chef && chown admin:admin /var/chef
 mkdir -p $HOME_DIR/.ssh && chown admin:admin
 chown 0600 /home/admin/.ssh
 
-$pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
+pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
 
 cat $pub_key >> $HOME_DIR/.ssh/autorized_keys
 
