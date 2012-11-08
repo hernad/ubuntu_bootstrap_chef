@@ -47,7 +47,7 @@ chown 0600 /home/admin/.ssh
 
 pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
 
-cat $pub_key >> $HOME_DIR/.ssh/autorized_keys
+cat "$pub_key" >> $HOME_DIR/.ssh/autorized_keys
 
 }
 
