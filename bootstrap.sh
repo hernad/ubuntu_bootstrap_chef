@@ -17,12 +17,11 @@ ADMIN_USER=admin
 HOME_DIR=/home/$ADMIN_USER
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 
-#bash < <( curl -L https://raw.github.com/gist/73344/vakonako )
 
 # http://serverfault.com/questions/58378/add-new-user-with-root-access-in-linux
 
-# run as root with:
-# curl -L https://raw.github.com/hernad/ubuntu_bootstrap_chef/master/bootstrap.sh  | bash
+#run:
+#sudo su root -c "(apt-get install -y curl) && (curl -L https://raw.github.com/hernad/ubuntu_bootstrap_chef/master/bootstrap.sh | bash)"
 
 function line {
 echo "----------------------------------------"
