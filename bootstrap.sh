@@ -7,6 +7,11 @@
 # ovaj mi pase
 # https://gist.github.com/3328844
 
+AUTHOR=Ernad Husremovic
+VERSION=0.5.0
+DATE=08.11.2012
+LICENSE=MIT
+
 GITHUB_USER=hernad
 ADMIN_USER=admin
 HOME_DIR=/home/$ADMIN_USER
@@ -16,9 +21,21 @@ HOME_DIR=/home/$ADMIN_USER
 
 # http://serverfault.com/questions/58378/add-new-user-with-root-access-in-linux
 
-
 # run as root with:
 # curl -L https://raw.github.com/hernad/ubuntu_bootstrap_chef/master/bootstrap.sh  | bash
+
+function line {
+echo "----------------------------------------"
+}
+
+
+function header {
+  line
+  echo "boostrap chef environment"
+  echo "Auhtor: $AUTHOR, version: $VERSION, $DATE"
+  echo "License: $LICENSE"
+  line
+}
 
 function create_admin_user {
   useradd $ADMIN_USER -m -s /bin/bash
@@ -47,13 +64,12 @@ chown 0600 /home/admin/.ssh
 
 pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
 
-cat "$pub_key" >> $HOME_DIR/.ssh/autorized_keys
+echo "$pub_key" >> $HOME_DIR/.ssh/autorized_keys
 
 }
 
-function line {
-echo "----------------------------------------"
-}
+
+header
 
 echo "create admin user ..."
 line
