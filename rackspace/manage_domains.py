@@ -3,6 +3,7 @@
 import os
 import clouddns
 
+print "definisati environment varijable OS_USERNAME=bringout, OS_PASSWORD=api_key_rackspace u ~/.bash_profile"
 
 def record_exists(domain, name):
     for record in domain.get_records():
