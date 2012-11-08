@@ -38,10 +38,12 @@ function instal_pub_key {
 # Make the chef directory and chown it for my admin user.
 
 mkdir /var/chef && chown admin:admin /var/chef
-mkdir -p /home/admin/.ssh && chown admin:admin
+mkdir -p $HOME_DIR/.ssh && chown admin:admin
 chown 0600 /home/admin/.ssh
 
-cat (CURL -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub) >> $HOME_DIR/.ssh/autorized_keys
+$pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
+
+cat $pub_key >> $HOME_DIR/.ssh/autorized_keys
 
 }
 
