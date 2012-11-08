@@ -7,10 +7,10 @@
 # ovaj mi pase
 # https://gist.github.com/3328844
 
-AUTHOR=Ernad Husremovic
-VERSION=0.5.0
-DATE=08.11.2012
-LICENSE=MIT
+AUTHOR="Ernad Husremovic"
+VERSION="0.5.0"
+DATE="08.11.2012"
+LICENSE="MIT"
 
 GITHUB_USER=hernad
 ADMIN_USER=admin
@@ -64,8 +64,8 @@ function install_pub_key {
 # Make the chef directory and chown it for my admin user.
 
 mkdir /var/chef && chown admin:admin /var/chef
-mkdir -p $HOME_DIR/.ssh && chown admin:admin
-chown 0600 /home/admin/.ssh
+mkdir -p $HOME_DIR/.ssh && chown admin:admin $HOME_DIR/.ssh
+chown 0640 $HOME_DIR/.ssh
 
 pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
 
