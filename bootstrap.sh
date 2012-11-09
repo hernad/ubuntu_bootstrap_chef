@@ -12,10 +12,16 @@ VERSION="0.8.0"
 DATE="09.11.2012"
 LICENSE="MIT"
 
-GITHUB_USER=hernad
 ADMIN_USER=root
 HOME_DIR=/root
-COOKBOOK_PROJECT=vagratnt_gitlab
+
+
+#GITHUB_PROJECT=vagrant_gitlab
+if [[ -z "$GITHUB_USER" || -z "$GITHUB_PROJECT" ]]; then
+  echo "GITHUB_USER=$GITHUB_USER, GITHUB_PROJECT=$GITHUB_PROJECT - definisati ove environment varijable"
+  exit 1
+fi
+
 
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 
@@ -52,12 +58,12 @@ function install_chef {
 
 function install_cookook {
 
-GITHUB_URL=git://github.com/$GITHUB_USER/$COOKBOOK_PROJECT.git
+GITHUB_URL=git://github.com/$GITHUB_USER/$GITHUB_PROJECT.git
 
 cd /root
 git clone $GITHUB_URL
 
-cd $COOKBOOK_PROJECT
+cd $GITHUB_PROJECT
 ./run_solo.rb
 
 }
@@ -77,4 +83,10 @@ line
 install_chef
 line
 
-echo "boostrap chef for $COOKBOOK_PROJECT is finished :)"
+echo "install cookbook"
+line
+install_cookbook
+line
+
+
+echo "boostrap chef for $GITHUB_PROJECT is finished :)"
