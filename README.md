@@ -9,6 +9,17 @@ http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 sudo su root -c "(apt-get install -y curl) && (curl -L https://raw.github.com/hernad/ubuntu_bootstrap_chef/master/bootstrap.sh | bash)"
 </pre>
 
+fog
+-----
+
+http://andyleonard.com/2011/11/28/deploying-ubuntu-on-rackspace-using-fog-and-cloud-init/
+
+http://jeffgran.com/276/blog/ubuntu-cloud-init-rackspace-fog-ruby
+
+https://help.ubuntu.com/community/CloudInit
+
+https://github.com/fog/fog
+
 
 Mac OS X 
 ---------

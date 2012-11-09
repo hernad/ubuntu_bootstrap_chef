@@ -8,13 +8,15 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.7.0"
+VERSION="0.8.0"
 DATE="09.11.2012"
 LICENSE="MIT"
 
 GITHUB_USER=hernad
 ADMIN_USER=root
-HOME_DIR=/$ADMIN_USER
+HOME_DIR=/root
+COOKBOOK_PROJECT=vagratnt_gitlab
+
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 
 
@@ -48,22 +50,19 @@ function install_chef {
   gem install chef ruby-shadow --no-ri --no-rdoc
 }
 
-function install_pub_key {
+function install_cookook {
 
-# Make the chef directory and chown it for my admin user.
+GITHUB_URL=git://github.com/$GITHUB_USER/$COOKBOOK_PROJECT.git
 
-mkdir /var/chef && chown admin:admin /var/chef
-mkdir -p $HOME_DIR/.ssh
+cd /root
+git clone $GITHUB_URL
 
-pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/sezame_otvori_se.pub )
-
-echo "$pub_key" >> $HOME_DIR/.ssh/authorized_keys
-
-chown $ADMIN_USER -R $HOME_DIR/.ssh
-chmod 0640 $HOME_DIR/.ssh
-chmod  0600 $HOME_DIR/.ssh/authorized_keys
+cd $COOKBOOK_PROJECT
+./run_solo.rb
 
 }
+
+
 
 # --------- start app ---------------------
 header
@@ -78,9 +77,4 @@ line
 install_chef
 line
 
-echo "install sezame_otvori_se.pub -> admin@~/.ssh/authorized_keys"
-line
-install_pub_key
-line
-
-echo "boostrap chef is finished :)"
+echo "boostrap chef for $COOKBOOK_PROJECT is finished :)"
