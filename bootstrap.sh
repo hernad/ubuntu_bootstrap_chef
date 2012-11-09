@@ -8,13 +8,13 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.6.0"
-DATE="08.11.2012"
+VERSION="0.7.0"
+DATE="09.11.2012"
 LICENSE="MIT"
 
 GITHUB_USER=hernad
-ADMIN_USER=admin
-HOME_DIR=/home/$ADMIN_USER
+ADMIN_USER=root
+HOME_DIR=/$ADMIN_USER
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 
 
@@ -34,16 +34,6 @@ function header {
   echo "Auhtor: $AUTHOR, version: $VERSION, $DATE"
   echo "License: $LICENSE"
   line
-}
-
-function create_admin_user {
-
-  adm=`groups $ADMIN_USER | grep -c ":.*$ADMIN_USER"`
-
-  if [[ $adm -eq 0 ]]; then
-     useradd $ADMIN_USER -g $ADMIN_USER  -m -s /bin/bash
-  fi
-  usermod -a -G adm admin
 }
 
 function upgrade_system {
@@ -69,7 +59,7 @@ pub_key=$( curl -L https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/mas
 
 echo "$pub_key" >> $HOME_DIR/.ssh/authorized_keys
 
-chown $ADMIN_USER:$ADMIN_USER -R $HOME_DIR/.ssh
+chown $ADMIN_USER -R $HOME_DIR/.ssh
 chmod 0640 $HOME_DIR/.ssh
 chmod  0600 $HOME_DIR/.ssh/authorized_keys
 
@@ -77,11 +67,6 @@ chmod  0600 $HOME_DIR/.ssh/authorized_keys
 
 # --------- start app ---------------------
 header
-
-echo "create admin user ..."
-line
-create_admin_user
-line
 
 echo "upgrading system ..."
 line
