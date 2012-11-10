@@ -73,9 +73,9 @@ class RackServer
   def export_os_public_ip
      server = find_server_by_name('gitlab.test.out.ba')
      if server
-        print "export OS_PUBLIC_IP=#{server.public_ip_address}"
+        "export OS_PUBLIC_IP=#{server.public_ip_address}"
      else
-        print "unset OS_PUBLIC_IP"
+        "unset OS_PUBLIC_IP"
      end
   end
 end
