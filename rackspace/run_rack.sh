@@ -21,7 +21,6 @@ PUBLIC_IP=`./export_public_ip.rb | sed -e 's/export OS_PUBLIC_IP=//'`
 
 echo "PUBLIC_IP=$PUBLIC_IP"
 
-// ucitaj envars
 export $OS_ENVARS
 
 echo "OS_ENVARS: $OS_ENVARS"
