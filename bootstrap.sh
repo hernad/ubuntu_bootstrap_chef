@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # https://gist.github.com/2775351
 
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
@@ -8,7 +6,7 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.9.6"
+VERSION="0.9.9"
 DATE="10.11.2012"
 LICENSE="MIT"
 
