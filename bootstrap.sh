@@ -67,8 +67,9 @@ cd /root
 echo $GITHUB_URL
 git clone $GITHUB_URL
 
-cd $GITHUB_PROJECT
-./run_solo.rb
+cd /root/$GITHUB_PROJECT
+echo `pwd`
+bash run_solo.rb
 
 }
 
