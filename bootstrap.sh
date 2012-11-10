@@ -17,10 +17,10 @@ HOME_DIR=/root
 
 
 #GITHUB_PROJECT=vagrant_gitlab
-if [[ -z "$GITHUB_USER" || -z "$GITHUB_PROJECT" ]]; then
-  echo "GITHUB_USER=$GITHUB_USER, GITHUB_PROJECT=$GITHUB_PROJECT - definisati ove environment varijable"
-  exit 1
-fi
+#if [[ -z "$GITHUB_USER" || -z "$GITHUB_PROJECT" ]]; then
+#  echo "GITHUB_USER=$GITHUB_USER, GITHUB_PROJECT=$GITHUB_PROJECT - definisati ove environment varijable"
+#  exit 1
+#fi
 
 
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
