@@ -8,7 +8,7 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.9.0"
+VERSION="0.9.5"
 DATE="09.11.2012"
 LICENSE="MIT"
 
@@ -56,7 +56,7 @@ function install_chef {
   gem install chef ruby-shadow --no-ri --no-rdoc
 }
 
-function install_cookook {
+function install_cookbook {
 
 GITHUB_URL=git://github.com/$GITHUB_USER/$GITHUB_PROJECT.git
 
