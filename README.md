@@ -25,3 +25,15 @@ Mac OS X
 ---------
 
 brew install ssh-copy-id
+
+
+Run
+----
+
+#rackspace podaci
+OS_PASSWORD=api_key
+OS_USERNAME=bringout
+
+OS_SSH_KEY="~/.ssh/sezame_otvori_se" OS_SERVER_NAME=gitlab.test.out.ba GMAIL_USER=bakir.husremovic@bring.out.ba GMAIL_PASSWORD=pwd
+
+

@@ -192,3 +192,7 @@ nova flavor-show
 
 ssh-copy-id  -i ~/.ssh/sezame_otvori_se root@198.61.200.137
 
+
+http://www.rackspace.com/knowledge_center/article/useful-python-novaclient-commands
+
+
