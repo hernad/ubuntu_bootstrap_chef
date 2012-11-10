@@ -3,7 +3,8 @@
 import os
 import clouddns
 
-print "definisati environment varijable OS_USERNAME=bringout, OS_PASSWORD=api_key_rackspace u ~/.bash_profile"
+print "definisati environment varijable OS_USERNAME=bringout, OS_PASSWORD=api_key_rackspace,"
+print "OS_DNS_NAME u ~/.bash_profile"
 
 def record_exists(domain, name):
     for record in domain.get_records():
@@ -25,9 +26,9 @@ for domain in dns.get_domains():
 
 #Create new record::
 
-dns_record = "python.test.out.ba"
-
-domain = dns.get_domain(name='test.out.ba')
+dns_record = os.environ["OS_DNS_RECORD"]
+dns_domain = os.environ["OS_DNS_DOMAIN"]
+domain = dns.get_domain(name=dns_domain)
 
 if not record_exists(domain, dns_record):
     domain.create_record(dns_record, '127.0.0.1', 'A')
@@ -42,3 +43,17 @@ record.update(data='192.168.3.17', ttl=600)
 # list sve zapise
 for record in domain.get_records():
         print '(%s) %s -> %s' % (record.type, record.name, record.data)
+
+
+import sys, getopt
+
+def main(argv):
+   dns_record=''
+   ip_address=''
+
+   try:
+       opts, args = getopt.getopt(argv, "hd:r:")
+
+
+
+
