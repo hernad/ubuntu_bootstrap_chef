@@ -69,7 +69,7 @@ git clone $GITHUB_URL
 
 cd /root/$GITHUB_PROJECT
 echo `pwd`
-
+git pull
 bash run_solo.sh
 
 }
