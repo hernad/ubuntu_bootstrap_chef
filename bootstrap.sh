@@ -54,7 +54,7 @@ function install_chef {
   apt-get -y install git build-essential autoconf zlib1g-dev libssl-dev \
       libreadline-dev libyaml-dev libcurl4-openssl-dev curl python-software-properties \
       ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 curl
-  gem install chef ruby-shadow --no-ri --no-rdoc
+  gem install chef bundler rake ruby-shadow --no-ri --no-rdoc
 }
 
 function install_cookbook {
