@@ -74,6 +74,7 @@ curl -L $BOOTSTRAP_URL > run_solo.sh
 
 bash run_solo.sh
 
+RET=$?
 }
 
 
@@ -97,4 +98,8 @@ install_cookbook
 line
 
 
-echo "boostrap chef for $GITHUB_PROJECT is finished ($VERSION) :)"
+if [[ $RET -eq 0 ]]; then
+  echo "boostrap chef for $GITHUB_PROJECT is finished ($VERSION) :)"
+else
+  echo "boostrap neuspjesan ?!"
+fi
