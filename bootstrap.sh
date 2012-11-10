@@ -70,6 +70,10 @@ git clone $GITHUB_URL
 cd /root/$GITHUB_PROJECT
 echo `pwd`
 git pull
+
+BOOTSTRAP_URL=https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/run_solo.sh
+curl -L $BOOTSTRAP_URL > run_solo.sh
+
 bash run_solo.sh
 
 }
