@@ -8,8 +8,8 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.9.5"
-DATE="09.11.2012"
+VERSION="0.9.6"
+DATE="10.11.2012"
 LICENSE="MIT"
 
 ADMIN_USER=root
@@ -61,6 +61,7 @@ function install_cookbook {
 GITHUB_URL=git://github.com/$GITHUB_USER/$GITHUB_PROJECT.git
 
 cd /root
+echo $GITHUB_URL
 git clone $GITHUB_URL
 
 cd $GITHUB_PROJECT
