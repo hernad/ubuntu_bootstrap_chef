@@ -82,10 +82,10 @@ RET=$?
 # --------- start app ---------------------
 header
 
-echo "upgrading system ..."
-line
-upgrade_system
-line
+#echo "upgrading system ..."
+#line
+#upgrade_system
+#line
 
 echo "install chef"
 line
