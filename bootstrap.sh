@@ -22,6 +22,9 @@ HOME_DIR=/root
 #  exit 1
 #fi
 
+echo "ENVARS ----------------------------"
+env
+echo "-----------------------------------"
 
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 
