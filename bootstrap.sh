@@ -8,7 +8,7 @@
 # https://gist.github.com/3328844
 
 AUTHOR="Ernad Husremovic"
-VERSION="0.8.0"
+VERSION="0.9.0"
 DATE="09.11.2012"
 LICENSE="MIT"
 
@@ -75,12 +75,12 @@ header
 
 echo "upgrading system ..."
 line
-upgrade_system
+#upgrade_system
 line
 
 echo "install chef"
 line
-install_chef
+#install_chef
 line
 
 echo "install cookbook"
@@ -89,4 +89,4 @@ install_cookbook
 line
 
 
-echo "boostrap chef for $GITHUB_PROJECT is finished :)"
+echo "boostrap chef for $GITHUB_PROJECT is finished ($VERSION) :)"
