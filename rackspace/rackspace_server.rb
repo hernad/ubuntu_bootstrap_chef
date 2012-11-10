@@ -81,6 +81,17 @@ class RackServer
         "unset OS_PUBLIC_IP"
      end
   end
+
+  def public_ip
+     server = find_server_by_name(@server_name)
+     if server
+        "#{server.public_ip_address}"
+     else
+        "0.0.0.0"
+     end
+  end
+
+
 end
 
 
