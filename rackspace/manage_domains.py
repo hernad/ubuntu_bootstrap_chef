@@ -26,8 +26,8 @@ def main(argv):
     ip_address=''
 
 
-    print "definisati environment varijable OS_USERNAME=bringout, OS_PASSWORD=api_key_rackspace,"
-    print "OS_DNS_DOMAIN u ~/.bash_profile"
+    #print "definisati environment varijable OS_USERNAME=bringout, OS_PASSWORD=api_key_rackspace,"
+    #print "OS_DNS_DOMAIN u ~/.bash_profile"
 
 
     parser = OptionParser()

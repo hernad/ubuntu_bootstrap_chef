@@ -46,7 +46,7 @@ class RackServer
 
     server = @connection.servers.bootstrap({
        :image_id => 125,
-       :flavor_id => 2,
+       :flavor_id => 2,  # 512 MB / 20 GB
        :name => @server_name,
        :private_key_path => @ssh_key,
        :public_key_path => @ssh_key + ".pub"
