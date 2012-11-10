@@ -84,12 +84,12 @@ header
 
 echo "upgrading system ..."
 line
-#upgrade_system
+upgrade_system
 line
 
 echo "install chef"
 line
-#install_chef
+install_chef
 line
 
 echo "install cookbook"

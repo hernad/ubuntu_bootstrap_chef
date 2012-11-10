@@ -25,9 +25,9 @@ export $OS_ENVARS
 
 echo "OS_ENVARS: $OS_ENVARS"
 
-BASH_F="boostrap_project.sh"
 BOOTSTRAP_URL=https://raw.github.com/$GITHUB_USER/ubuntu_bootstrap_chef/master/bootstrap.sh
 
+BASH_F="boostrap_project.sh"
 CMD="apt-get install -y curl && ( echo -e 'export $OS_ENVARS\n' > $BASH_F && curl -L $BOOTSTRAP_URL >> $BASH_F && bash $BASH_F )"
 run_ssh "$CMD"
 

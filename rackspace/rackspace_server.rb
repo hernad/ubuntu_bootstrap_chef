@@ -46,7 +46,7 @@ class RackServer
 
     server = @connection.servers.bootstrap({
        :image_id => 125,
-       :flavor_id => 1,
+       :flavor_id => 2,
        :name => @server_name,
        :private_key_path => @ssh_key,
        :public_key_path => @ssh_key + ".pub"
@@ -55,10 +55,13 @@ class RackServer
 
 
   def wait_until_active
-    until find_server_by_name(connection.servers, 'gitlab.test.out.ba').state == "ACTIVE"
+    until find_server_by_name(@server_name).state == "ACTIVE"
        print "cekam da se server podigne ..."
        sleep 3
     end
+    print "server je kreiran !"
+    s=find_server_by_name(@server_name)
+    print "Server: #{s.name} IP: #{s.public_ip_address}"
   end
 
   def find_server_by_name(name)
@@ -71,7 +74,7 @@ class RackServer
   end
 
   def export_os_public_ip
-     server = find_server_by_name('gitlab.test.out.ba')
+     server = find_server_by_name(@server_name)
      if server
         "export OS_PUBLIC_IP=#{server.public_ip_address}"
      else
@@ -83,4 +86,3 @@ end
 
 #server.reload
 #server.destroy
-
