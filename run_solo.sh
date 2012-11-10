@@ -51,4 +51,7 @@ bundle exec librarian-chef update
 gem_instaliran chef
 gem_instaliran rvm
 
+#koristi systemski ruby za chef-solo
+rvm system
+
 chef-solo -c solo.rb -j node.json
