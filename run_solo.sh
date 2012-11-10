@@ -49,5 +49,6 @@ bundle exec librarian-chef install
 bundle exec librarian-chef update
 
 gem_instaliran chef
+gem_instaliran rvm
 
 chef-solo -c solo.rb -j node.json
