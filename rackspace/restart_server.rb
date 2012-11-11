@@ -14,7 +14,5 @@ if s.nil?
    puts "server imena #{name} ne postoji ?!"
 else
    puts "Restartujem server #{s.name}"
-   s.reload
+   s.reboot
 end
-
-#server.destroy
