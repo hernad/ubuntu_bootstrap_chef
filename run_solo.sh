@@ -24,6 +24,16 @@ if [[ $ret -eq 0 ]]; then
   echo "rvm je u path-u"
 else
   source /etc/profile.d/rvm.sh
+  `which rvm`
+  ret=$?
+  if [[ $ret -eq 0 ]]; then
+     echo "ok, rvm je tu"
+  else
+     apt-get install -y ruby-rvm
+     # ovog fajla nema a trazi ga rvm
+     touch /usr/share/ruby-rvm/README
+     source /etc/profile.d/rvm.sh
+  fi
 fi
 
 }
@@ -33,7 +43,6 @@ set_rvm
 RVM=`rvm list rubies | grep -c 1.9.3`
 
 if [ "$RVM" != "1" ]; then
-   apt-get install -y ruby-rvm
    rvm install 1.9.3-p286
    #\curl -L https://get.rvm.io | bash -s stable --ruby
  else
