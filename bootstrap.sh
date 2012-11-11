@@ -1,7 +1,6 @@
 # https://gist.github.com/2775351
 
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
-
 # ovaj mi pase
 # https://gist.github.com/3328844
 
@@ -13,16 +12,6 @@ LICENSE="MIT"
 ADMIN_USER=root
 HOME_DIR=/root
 
-
-#GITHUB_PROJECT=vagrant_gitlab
-#if [[ -z "$GITHUB_USER" || -z "$GITHUB_PROJECT" ]]; then
-#  echo "GITHUB_USER=$GITHUB_USER, GITHUB_PROJECT=$GITHUB_PROJECT - definisati ove environment varijable"
-#  exit 1
-#fi
-
-echo "ENVARS ----------------------------"
-env
-echo "-----------------------------------"
 
 # http://www.wolfe.id.au/2012/09/10/how-i-use-chef-solo-with-ubuntu-12.04/
 
@@ -45,9 +34,10 @@ function header {
   line
 }
 
-function upgrade_system {
+function update_repos {
   apt-get -y update
-  apt-get -y upgrade
+  #apt-get -y upgrade
+  RET=$?
 }
 
 function install_chef {
@@ -55,6 +45,7 @@ function install_chef {
       libreadline-dev libyaml-dev libcurl4-openssl-dev curl python-software-properties \
       ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 irb1.9.1 ri1.9.1 rdoc1.9.1 curl
   gem install chef bundler rake ruby-shadow --no-ri --no-rdoc
+  RET=$?
 }
 
 function install_cookbook {
@@ -82,10 +73,10 @@ RET=$?
 # --------- start app ---------------------
 header
 
-#echo "upgrading system ..."
-#line
-#upgrade_system
-#line
+echo "updating system repositories..."
+line
+update_repos
+line
 
 echo "install chef"
 line

@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#
+
 cd = Dir.pwd
 
 require cd + "/rackspace_server"
@@ -12,6 +12,7 @@ s = r.find_server_by_name(name)
 
 
 if s.nil?
+   print "radim bootstrap servera #{name}"
    r.bootstrap
 else
    print "Server sa imenom #{s.name} vec postoji !"

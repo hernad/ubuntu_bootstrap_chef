@@ -39,7 +39,7 @@ class RackServer
   end
 
   def bootstrap
-    puts "kreiram ubuntu server 12.04 server ..."
+    puts "kreiram ubuntu server 12.04:  512 MB/20GB server ..."
 
     # https://www.engineyard.com/blog/2011/spinning-up-cloud-compute-instances/
     # knife rackspace flavor list => 125  Ubuntu 12.04 LTS
