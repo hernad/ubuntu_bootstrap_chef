@@ -12,11 +12,11 @@ s = r.find_server_by_name(name)
 
 
 if s.nil?
-   print "radim bootstrap servera #{name}"
+   puts "radim bootstrap servera #{name}"
    r.bootstrap
 else
-   print "Server sa imenom #{s.name} vec postoji !"
-   print "Server: #{s.name} IP: #{s.public_ip_address}"
+   puts "Server sa imenom #{s.name} vec postoji !"
+   puts "Server: #{s.name} IP: #{s.public_ip_address}"
 end
 
 r.wait_until_active

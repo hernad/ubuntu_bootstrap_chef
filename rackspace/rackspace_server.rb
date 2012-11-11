@@ -56,12 +56,12 @@ class RackServer
 
   def wait_until_active
     until find_server_by_name(@server_name).state == "ACTIVE"
-       print "cekam da se server podigne ..."
-       sleep 3
+       puts "cekam da se server podigne ..."
+       sleep 10
     end
-    print "server je kreiran !"
+    puts "server je kreiran !"
     s=find_server_by_name(@server_name)
-    print "Server: #{s.name} IP: #{s.public_ip_address}"
+    puts "Server: #{s.name} IP: #{s.public_ip_address}"
   end
 
   def find_server_by_name(name)
@@ -95,5 +95,3 @@ class RackServer
 end
 
 
-#server.reload
-#server.destroy

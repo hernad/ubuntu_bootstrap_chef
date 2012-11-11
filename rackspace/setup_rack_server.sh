@@ -18,9 +18,17 @@ ssh -o $SSH_OPT -i $PRIVATE_KEY $USER@$PUBLIC_IP $1
 function create_server {
 
 echo "kreiram rackspace server ..."
-`ruby create_server.rb`
+ruby create_server.rb
 
 }
+
+function restart_server {
+
+echo "restartujem server ..."
+ruby restart_server.rb
+
+}
+
 
 function manage_dns {
 
@@ -50,3 +58,5 @@ BASH_F="boostrap_project.sh"
 CMD="apt-get install -y curl && ( echo -e 'export $OS_ENVARS\n' > $BASH_F && curl -L $BOOTSTRAP_URL >> $BASH_F && bash $BASH_F )"
 run_ssh "$CMD"
 
+
+restart_server
