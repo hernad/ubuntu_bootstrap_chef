@@ -54,13 +54,13 @@ def main(argv):
 
     #Create new record::
 
+    dns_domain = options.dns_domain
     dns_record = options.dns_record
     ip_address = options.ip_address
-    dns_domain = options.dns_domain
     domain = dns.get_domain(name=dns_domain)
 
     if not record_exists(domain, dns_record):
-        domain.create_record(dns_domain, dns_record, 'A')
+        domain.create_record(dns_record, ip_address, 'A')
     else:
         print "dns record postoji " + dns_record
 
