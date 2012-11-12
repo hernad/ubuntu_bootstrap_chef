@@ -1,7 +1,45 @@
 Boostrap chef on ubuntu
 ========================
 
-cd rackspace
+OS envars
+---------
+
+~/.bash_profile 
+
+    export OS_AUTH_URL=https://identity.api.rackspacecloud.com/v2.0/
+    export OS_AUTH_SYSTEM=rackspace
+    export OS_REGION_NAME=DFW
+    export OS_USERNAME=bringout
+
+    export OS_SERVER_NAME="gitlab.knowhow.out.ba"
+    export OS_DNS_DOMAIN="knowhow.out.ba"
+
+    #export OS_SERVER_NAME="gitlab-stable.test.out.ba"
+    #export OS_DNS_DOMAIN="test.out.ba"
+
+    export GITLAB_REPOS="git://github.com/hernad/gitlabhq.git"
+    #export GITLAB_VERSION="v3.0.2"
+    export GITLAB_VERSION="master"
+
+    # OS_ENVARS sadrzi sve varijable koje chef-solo treba kod konifiguracije  remote sistema
+    OS_ENVARS="GMAIL_USER=bring.out.sa@gmail.com GMAIL_PASSWORD=pwd"
+    OS_ENVARS="$OS_ENVARS MYSQL_ROOT_PWD=pwd MYSQL_PWD=pwd2"
+    OS_ENVARS="$OS_ENVARS GITHUB_USER=hernad GITHUB_PROJECT=vagrant_gitlab"
+    OS_ENVARS="$OS_ENVARS OS_SERVER_NAME=$OS_SERVER_NAME
+    OS_DNS_DOMAIN=$OS_DNS_DOMAIN"
+    OS_ENVARS="$OS_ENVARS GITLAB_VERSION=$GITLAB_VERSION
+    GITLAB_REPOS=$GITLAB_REPOS"
+    export OS_ENVARS
+
+    export OS_TENANT_NAME=bringout
+    export NOVA_RACK_AUTH=1
+    export OS_PASSWORD=rackspace_api_key
+    export OS_PROJECT_ID=bringout
+    export OS_NO_CACHE=1
+
+
+Create and setup rackspace server
+----------------------------------
 
 [./setup\_rack\_server.sh](https://github.com/hernad/ubuntu_bootstrap_chef/blob/master/rackspace/setup_rack_server.sh)
 
